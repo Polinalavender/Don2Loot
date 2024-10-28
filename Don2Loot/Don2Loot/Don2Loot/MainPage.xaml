@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Don2Loot.MainPage"
+             Title="Main Page"
+             NavigationPage.HasNavigationBar="false">
+
+    <Grid BackgroundColor="#2D2F30">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6"/> 
+            <ColumnDefinition Width="*"/> 
+            <ColumnDefinition Width="*"/> 
+            <ColumnDefinition Width="*"/> 
+            <ColumnDefinition Width="*"/> 
+            <ColumnDefinition Width="6"/> 
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="profile"
+               Grid.Column="0"
+               Grid.Row="0"
+               HorizontalOptions="Start"
+               WidthRequest="35"
+               Margin="25, 0, 0, 0"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" x:Name="mainPageCoins"/>
+            <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+        </Grid>
+
+        <Label 
+            Grid.Row="1" 
+            Grid.Column="1"
+            Grid.ColumnSpan="5" 
+            Text="HEY, "
+            TextColor="White" 
+            FontSize="40" 
+            HorizontalOptions="StartAndExpand" 
+            Margin="15, 10, 0, 0"
+            FontAttributes="Bold">
+        </Label>
+        <Label 
+            Grid.Row="1" 
+            Grid.Column="1"
+            Grid.ColumnSpan="5" 
+            Text="{Binding Name}"
+            TextColor="White" 
+            FontSize="40" 
+            HorizontalOptions="StartAndExpand" 
+            Margin="106, 10, 0, 0"
+            FontAttributes="Bold">
+        </Label>
+        <Label Grid.Row="1" 
+               Grid.Column="1"
+               Grid.ColumnSpan="5" 
+               Text="Let's have a look at your tasks" 
+               TextColor="White" 
+               FontSize="25" 
+               HorizontalOptions="StartAndExpand" 
+               Margin="15, 70, 0, 0"
+               FontAttributes="Bold">
+        </Label>
+
+        <CollectionView x:Name="mainPageCollectionView"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="6"
+                          Grid.Row="2"
+                          Grid.RowSpan="1"
+                          Margin="0,0,0,0"
+                          HeightRequest="100"
+                          SelectionMode="None"
+                          >
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.Header>
+                <StackLayout HeightRequest="0" />
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#FE931F" Padding="5" Margin="15" CornerRadius="30" WidthRequest="150">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding TaskName}" HorizontalTextAlignment="Center" Grid.Row="0" FontSize="Large" FontAttributes="Bold"/>
+                            <Label Text="{Binding TaskDescription}" HorizontalTextAlignment="Center" Grid.Row="1" FontSize="Medium"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <StackLayout HeightRequest="0" />
+            </CollectionView.Footer>
+        </CollectionView>
+
+        <Frame BackgroundColor="White"
+               Grid.Row="3"
+               Grid.Column="1"
+               Grid.ColumnSpan="4"
+               Grid.RowSpan="3"
+               CornerRadius="60"
+               Margin="0,0,0,0">
+
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Frame BackgroundColor="Gray"
+                                 Grid.Row="0" 
+                                 Grid.Column="1"
+                                 CornerRadius="30"
+                                 Margin="65,12,65,20">
+
+                    </Frame>
+                    <Frame   Grid.Row="1" 
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1"
+                                 >
+                        <Button Text="YOUR COLLECTION"
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="collectionPageButton"/>
+                    </Frame>
+
+                    <Frame   Grid.Row="2" 
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1">
+
+                        <Button Text="NEW TASK"
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="newTaskButton"/>
+                    </Frame>
+
+                    <Frame   Grid.Row="3" 
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1">
+
+                        <Button Text="TASKS"
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="taskPageButton"/>
+
+                    </Frame>
+
+                    <Frame   Grid.Row="4" 
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1">
+
+                        <Button Text="STORE"
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="storePageButton"/>
+
+                    </Frame>
+
+                </Grid>
+            </ScrollView>
+        </Frame>
+    </Grid>
+
+</ContentPage>

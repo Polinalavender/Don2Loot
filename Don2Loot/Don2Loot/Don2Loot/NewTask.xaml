@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Don2Loot.NewTask"
+             NavigationPage.HasNavigationBar="false"
+             Title="New Item">
+    <ContentPage.Content>
+        <StackLayout Spacing="10" BackgroundColor="#2D2F30">
+            <Grid HeightRequest="60">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" x:Name="newTaskCoins"/>
+                <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="40"/>
+            </Grid>
+            <StackLayout Spacing="10" Padding="25, 0, 25, 0">
+                <Label Text="Task Title" FontSize="Medium" TextColor="#FFFFFF"/>
+                <Entry x:Name="txtFileName" Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" TextColor="Orange"/>
+                <Label Text="Description" FontSize="Medium" TextColor="#FFFFFF" />
+                <Editor x:Name="txtFileText" Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" TextColor="Orange"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Cancel" Clicked = "Cancel" HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"/>
+                    <Button Text="Save" Clicked = "Save" HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"/>
+                </StackLayout>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage> 
+ 
+    
+   

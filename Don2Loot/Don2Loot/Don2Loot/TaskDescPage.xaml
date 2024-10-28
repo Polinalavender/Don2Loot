@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Don2Loot.TaskDescPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#2D2F30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" BackgroundColor="#2D2F30" HorizontalOptions="Start" Clicked="backButton"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" x:Name="taskCoins"/>
+                <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="TaskName" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" TextColor="#FE931F" FontSize="60" VerticalTextAlignment="Center" BackgroundColor="#2D2F30" x:Name="taskName"/>
+
+                <Frame Grid.Column="0" Grid.Row="1" BackgroundColor="#FE931F" CornerRadius="30" Margin="10">
+                    <Label Text="Task Description" TextColor="White" BackgroundColor="#FE931F" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold" x:Name="taskDescription"/>
+                </Frame>
+
+                <!--<Label Grid.Column="0" Grid.Row="2" TextColor="#FE931F" Text="" FontAttributes="Bold" IsVisible="false" x:Name="deleteButton" HorizontalOptions="CenterAndExpand" FontSize="Large"/>-->
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

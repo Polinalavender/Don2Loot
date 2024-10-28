@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Don2Loot": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

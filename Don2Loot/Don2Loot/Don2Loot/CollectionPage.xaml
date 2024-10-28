@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             x:Class="Don2Loot.CollectionPage"
+             NavigationPage.HasNavigationBar="false">
+
+    <Grid BackgroundColor="#2D2F30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" x:Name="collectionCoins"/>
+            <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+        </Grid>
+
+        <Label TextColor="White" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center" FontSize="40">
+            Your Rewards
+        </Label>
+        <Frame CornerRadius="30" Padding="10" BackgroundColor="#FE931F" Margin="25"
+               Grid.Row="2" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="3">
+            <flv:FlowListView FlowColumnCount="2" x:Name="myListView" HasUnevenRows="True"
+                              IsGroupingEnabled="True" FlowGroupDisplayBinding="{Binding Path=Key}"
+                          FlowGroupShortNameBinding="{Binding Path=Key}">
+                <flv:FlowListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="{Binding Path=Key.Title}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </flv:FlowListView.GroupHeaderTemplate>
+                <flv:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding Image}" Aspect="AspectFit" HeightRequest="250"/>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+            </flv:FlowListView>
+        </Frame>
+    </Grid>
+</ContentPage>

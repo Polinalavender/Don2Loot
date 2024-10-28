@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Don2Loot.ItemWon"
+             BackgroundColor="#2D2F30"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" x:Name="itemWonCoins"/>
+                <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="NEW CHEST!" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" TextColor="#FE931F" FontSize="36" VerticalTextAlignment="Center" BackgroundColor="#2D2F30" x:Name="itemWonName"/>
+
+                <!--Before Openning-->
+                <Frame Grid.Column="0" Grid.Row="1" BackgroundColor="#FE931F" CornerRadius="30" Margin="10" x:Name="openCrateBackground">
+                    <Button Text="OPEN CRATE" TextColor="White" BackgroundColor="#FE931F" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold" Clicked="ItemWonButton" x:Name="openCrateButton"/>
+                </Frame>
+                <!--Animation-->
+                <Frame Grid.Column="0" Grid.Row="1" BackgroundColor="White" CornerRadius="30" Margin="10" IsVisible="false" x:Name="animationOpeningBackground">
+                </Frame>
+                <!--After opening-->
+                <Frame Grid.Column="0" Grid.Row="1" BackgroundColor="#FE931F" CornerRadius="30" Margin="10" IsVisible="false" x:Name="afterOpeningBackground">
+                    <Image Source="{Binding rewardImage}" x:Name="rewardImageBind" IsVisible="false"/>
+                </Frame>
+
+                <Label Grid.Column="0" Grid.Row="2" TextColor="#FE931F" Text="" FontAttributes="Bold" IsVisible="false" x:Name="rarityTypeLabel" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

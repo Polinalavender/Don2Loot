@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             x:Class="Don2Loot.TaskPage"
+             NavigationPage.HasNavigationBar="false">
+    <Grid Background="#2D2F30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" x:Name="coinsTaskPage"/>
+            <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+        </Grid>
+        <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="30" Margin="5">
+            <SearchBar x:Name="Sherlock"
+                           Placeholder="Search Task"
+                           CancelButtonColor="#FE931F"
+                           PlaceholderColor="#FE931F"
+                           TextColor="#FE931F"
+                           HorizontalTextAlignment="Center"
+                           FontSize="Medium"
+                           FontAttributes="Italic"
+                           TextChanged="Sherlock_TextChanged"
+                            />
+        </Frame>
+        <Frame Grid.Row="3" Grid.Column="0" CornerRadius="30" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Text="TASK LISTING:" TextColor="#FE931F" FontSize="Large" FontAttributes="Bold" Grid.Row="0"/>
+                <ListView  x:Name="myListView"
+                                Grid.Row="1" Grid.Column="0" 
+                                HasUnevenRows="True"
+                                IsPullToRefreshEnabled="False">
+                    <ListView.ItemTemplate  Grid.Row="3" Grid.Column="0">
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame  BorderColor="Orange" BackgroundColor="White" Padding="0">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button  Text="{Binding TaskName}" TextColor="#FE931F" BackgroundColor="Transparent" Padding="0,10,0,10" HeightRequest="100"
+                                             FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" Command="{Binding Path=BindingContext.seeTaskDetailsCommand, Source={x:Reference myListView}}" CommandParameter="{Binding .}"/>
+                                        <Button Text="x" FontSize="30" TextColor="Gray" Grid.Column="2" BackgroundColor="Transparent"
+                                                Command="{Binding Path=BindingContext.deleteTaskCommand, Source={x:Reference myListView}}" CommandParameter="{Binding .}"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

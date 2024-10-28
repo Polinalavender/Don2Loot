@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Don2Loot.LoginPage"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:signature="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             NavigationPage.HasNavigationBar="false">
+    <ScrollView Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <StackLayout BackgroundColor="#2D2F30">
+
+            <Label  x:Name="txtFileName" Text="REGISTRATION" HorizontalTextAlignment="Center" TextColor="White" FontSize="30" Margin="50"/>
+            <Frame BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F" WidthRequest="100" HeightRequest="60" Padding="2">
+                <!--Margin="0 20 20 20"-->
+                <Entry x:Name="txtName" Placeholder ="Name" TextColor="White" PlaceholderColor="WhiteSmoke" HorizontalOptions="Center" WidthRequest="200" MaxLength="20"/>
+            </Frame>
+            <Frame  BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F"  WidthRequest="100" HeightRequest="60" Padding="2">
+                <!--Margin="0 20 20 20"-->
+                <Entry x:Name="txtEmail" Placeholder ="Email" TextColor="White" PlaceholderColor="WhiteSmoke"  HorizontalOptions="Center" WidthRequest="200"/>
+             </Frame>
+            <Frame  BackgroundColor="#707070" CornerRadius="30" BorderColor="#FE931F"  WidthRequest="200" HeightRequest="200" >
+                <!--Margin="0 20"-->
+                <signature:SignaturePadView x:Name="signature" HorizontalOptions="FillAndExpand" StrokeColor="#FE931F" VerticalOptions="StartAndExpand" HeightRequest="300" MinimumHeightRequest="300" BackgroundColor="#707070" />
+        </Frame>
+            <Label Text="By signing the form I promise to take steps into improving my future" HorizontalTextAlignment="Center" TextColor="#707070" FontSize="15" Margin="15"/>
+            <Button
+                Text="Submit"
+                x:Name="btnSubmit"
+                TextColor="White"
+                BackgroundColor="#FE931F"   
+                BorderColor="#FE931F"
+                BorderWidth="10"    
+                CornerRadius="500"
+                HorizontalOptions="End"
+                Margin ="50"
+                WidthRequest="100"
+                HeightRequest="50"
+                Clicked ="Button_Clicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

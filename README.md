@@ -27,7 +27,7 @@ Languages and software were used:
 - MySQL
 - GitHub
   
-Навыки: 
+Skills: 
 - Web Development
 - UI/UI design
 - Team Leadership
